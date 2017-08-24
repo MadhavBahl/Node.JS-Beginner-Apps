@@ -14,13 +14,20 @@ console.log('Command : ' + command);
 console.log('Yargs ARGS ' , argv);
 
 if(command === 'add'){
-  notes.addNote(argv.title,argv.body);
+  var note = notes.addNote(argv.title,argv.body);
+  if(note){
+    console.log('SUCCESS!! YOUR NOTE WAS ENTERED INTO THE DATABASE!');
+    console.log(`The Title Is : ${note.title}`);
+    console.log(`The Body  Is : ${note.body}`);
+  }
 } else if(command === 'list'){
   notes.getAll();
 } else if(command === 'read'){
   notes.getNote(argv.title);
 } else if(command === 'remove'){
-  notes.removeNote(argv.title);
+  var noteRemoved = notes.removeNote(argv.title);
+  var message = noteRemoved ? 'SUCCESS! Note Was Removed' : 'ERROR! Note Not Found';
+  console.log(message);
 } else{
   console.log('Command not recognized');
 }
