@@ -12,44 +12,43 @@
     <div class="form">
 
         <ul class="tab-group" style="padding-top: 20px; padding-left: 160px;">
-          <li class="tab active" ><a href="#signup" >Sign Up</a></li>
+          <li class="tab active" ><a href="#signup">Send Details</a></li>
         </ul>
         <div class="tab-content">
           <div id="signup">
-            <h1 ><img src="img/logo.png" style="width: 30px; margin-right: 5px;" />ADG -- IOS FUSION</h1>
-            <form action="/signup" method="post" id="formID">
+            <form action="/submit" method="post" id="formID">
             <div class="top-row">
               <div class="field-wrap">
                 <label>
                   First Name<span class="req">*</span>
                 </label>
-                <input type="text" required autocomplete="off" />
+                <input type="text" name="firstName" required autocomplete="off" />
               </div>
               <div class="field-wrap">
                 <label>
                   Last Name<span class="req">*</span>
                 </label>
-                <input type="text"required autocomplete="off"/>
+                <input type="text" name="lastName" required autocomplete="off"/>
               </div>
             </div>
             <div class="field-wrap">
               <label>
                 Email Address<span class="req">*</span>
               </label>
-              <input type="email"required autocomplete="off"/>
+              <input name="email" type="email" required autocomplete="off"/>
             </div>
             <div class="field-wrap">
               <label>
                 Mobile No.<span class="req">*</span>
               </label>
-              <input type="number"required autocomplete="off"/>
+              <input type="number" name="mobileNo" required autocomplete="off"/>
             </div>
 
             <div class="field-wrap">
               <label>
-                Reg No.<span class="req">*</span>
+                Address<span class="req">*</span>
               </label>
-              <input type="text"required autocomplete="off"/>
+              <input type="text" name"address" required autocomplete="off"/>
             </div>
 
             <button type="submit" class="button button-block"/>Submit The Details</button>
