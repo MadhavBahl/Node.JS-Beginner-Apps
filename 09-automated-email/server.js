@@ -1,6 +1,13 @@
 var express = require('express');
 var nodemailer = require('nodemailer');
 var bodyparser = require('body-parser');
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'madhavbahl20@gmail.com',
+    pass: 'ben10000'
+  }
+});
 
 const port = process.env.PORT || 8080;
 
@@ -24,6 +31,34 @@ app.post('/submit',(req,res) => {
   console.log(`Email: ${email}`);
   console.log(`Contact No: ${mobile}`);
   console.log(`Address: ${address}`);
+
+
+
+  var show = `<h1> YOUR DATA IS SAFE WITH US :)</h1>`
+    + `<h2>Name: ${fName} ${lName} </h2>`
+    + `<h2>Email: ${email} </h2>`
+    + `<h2>Contact No: ${mobile} </h2>`
+    + `<h2>Address: ${address} </h2>`
+
+  var send = `YOUR DATA IS SAFE WITH US :) \n`
+    + `Name: ${fName} ${lName} \n`
+    + `Email: ${email} \n`
+    + `Contact No: ${mobile} \n`
+    + `Address: ${address} `
+
+  res.send(show);
+
+  var mailOptions = {
+    from: 'madhavbahl20@gmail.com',
+    to: 'madhavbahl10@gmail.com',
+    subject: 'Personal Information',
+    text: send
+  }
+
+  transporter.sendMail(mailOptions,(err,info) => {
+    if(err) console.log(err);
+    else console.log(info.response);
+  });
 
 });
 
