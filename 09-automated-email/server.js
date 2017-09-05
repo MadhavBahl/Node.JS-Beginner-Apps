@@ -5,7 +5,7 @@ var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'madhavbahl20@gmail.com',
-    pass: 'ben10000'
+    pass: 'Your Password Here'
   }
 });
 
@@ -38,19 +38,15 @@ app.post('/submit',(req,res) => {
     + `<h2>Name: ${fName} ${lName} </h2>`
     + `<h2>Email: ${email} </h2>`
     + `<h2>Contact No: ${mobile} </h2>`
-    + `<h2>Address: ${address} </h2>`
+    + `<h2>Address: ${address} </h2>`;
 
-  var send = `YOUR DATA IS SAFE WITH US :) \n`
-    + `Name: ${fName} ${lName} \n`
-    + `Email: ${email} \n`
-    + `Contact No: ${mobile} \n`
-    + `Address: ${address} `
-
+  var send = `Hi ${fName}, \nWe just recieved your information through the form.
+    \nVery Nice to meet you :)`;
   res.send(show);
 
   var mailOptions = {
     from: 'madhavbahl20@gmail.com',
-    to: 'madhavbahl10@gmail.com',
+    to: email,
     subject: 'Personal Information',
     text: send
   }
