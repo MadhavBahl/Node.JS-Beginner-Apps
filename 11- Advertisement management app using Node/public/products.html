@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>adApp</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-notification/0.3.6/angular-ui-notification.min.css">
+    <style>
+        .topmargin{
+            margin-top: 50px;
+        }
+        .list-table{
+        max-height: 250px;
+        overflow-y: scroll;
+        }
+    </style>    
+</head>
+<body ng-app="adApp" ng-controller="productsCtrl">
+  <div class="container topmargin">
+      <div class="col-md-12">
+          <div class="panel panel-info">
+            <div class="panel-heading">Products
+                <a href="" class="pull-right" ng-click="goToDashboard()">Go To Dashboard</a>
+            </div>
+                <div class="panel-body">
+                    <div class="col-md-6">
+                        <form>
+                            <div class="form-group">
+                                <label for="id">ID*:</label>
+                                <input type="text" ng-model="id" class="form-control" id="id" name="id" ng-disabled="editMode">
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" ng-model="name" class="form-control" id="name" name="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Price $:</label>
+                                <input type="text" ng-model="price" class="form-control" id="price" name="price">
+                            </div>
+                            <div>
+                                <button type="submit" ng-click="addProduct()" class="btn btn-success" ng-disabled="disableAddBtn">Add/Update product</button>
+                                <button ng-click="clearFields()" class="btn btn-warning pull-right">Clear</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="list-table">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Edit</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="product in products">
+                                    <td>{{ product.id }}</td>
+                                    <td>{{ product.name }}</td>
+                                    <td>${{ product.price }}</td>
+                                    <td><a href="#" class="btn btn-primary" ng-click="editProduct(product)">Edit</a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+      </div>
+  </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-notification/0.3.6/angular-ui-notification.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers/products.controller.js"></script>
+<script src="js/services/products.service.js"></script>
+</body>
+</html>
