@@ -1,11 +1,13 @@
-The Complete Node.JS Developer Course -- UDEMY
+Node.Js Tutorials + Projects/Programs/Apps
 ----------------------------------------------
 
-Here, I have included all the codes involved in 
-Node.JS Developer course 2.0 by UDEMY.
+Here, I have included all some codes to help begginers learn Node.js
 
 To have access to these, you can fork this repository,
 and then use git clone.
 
-Use git clone for the updations in code.
+For Contributions, add a new pull requests,
+only valid pullrequests will be accepted.
+
+Read CONTRIBUTING.md for reference.
 

@@ -4,7 +4,7 @@ var bodyparser = require('body-parser');
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'madhavbahl20@gmail.com',
+    user: 'mad*******0@gmail.com',
     pass: 'ENTER YOUR PASSWORD'
   }
 });
@@ -45,7 +45,7 @@ app.post('/submit',(req,res) => {
   res.send(show);
 
   var mailOptions = {
-    from: 'madhavbahl20@gmail.com',
+    from: 'mad******0@gmail.com',
     to: email,
     subject: 'Personal Information',
     text: send
