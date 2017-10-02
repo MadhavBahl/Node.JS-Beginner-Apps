@@ -20,19 +20,7 @@ const cardRoutes = require('./routes/cards');
 app.use(mainRoutes);
 app.use('/cards', cardRoutes);
 
-// var request = http.get('http://www.github.com/gokaygurcan', function(response){
-//     console.dir(response);
-// });
 
-request('http://www.github.com/acgrdumlu', function (error, response, body) {
-  console.log('error:', error); // Print the error if one occurred
-  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-  console.log('body:', body); // Print the HTML for the Google homepage.
-  const day = function(body){
-      return body.getElemetById('day'); 
-  }
-  console.log(day);
-});
 //CORS 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
