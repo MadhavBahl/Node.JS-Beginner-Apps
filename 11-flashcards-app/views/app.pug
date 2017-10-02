@@ -1,0 +1,14 @@
+extends layout
+
+block main
+    section.namecard
+        .namecard-login
+            if name
+                p.namecard-greeting Welcome, #{name}!
+                form.namecard-exit(action='/goodbye', method='POST')
+                    button(type='submit')
+                        img(src='/static/img/close.svg')
+            else
+                p.namecard-greeting Hello, student!
+        block intro
+    block card
