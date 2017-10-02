@@ -1,0 +1,8 @@
+extends app
+
+block intro
+  form.namecard-form(action='/hello', method='post')
+    label.namecard-prompt Please enter your name:
+      input.namecard-name(type='text', name='username')
+    button.namecard-submit(type='submit') Submit
+
