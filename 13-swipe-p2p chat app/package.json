@@ -1,0 +1,30 @@
+{
+  "name": "p2p",
+  "version": "1.0.0",
+  "description": "Peer to Peer Chat",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Progyan Bhattacharya",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openshift/origin-server"
+  },
+  "engines": {
+    "node": ">= 0.10.0",
+    "npm": ">= 1.0.0"
+  },
+  "license": "ISC",
+  "readme": "README.md",
+  "devDependencies": {
+    "budo": "^8.2.1",
+    "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "aria2": "^3.0.0",
+    "emoticons": "^0.1.8",
+    "express": "^4.13.4",
+    "simple-peer": "^6.4.4"
+  }
+}
