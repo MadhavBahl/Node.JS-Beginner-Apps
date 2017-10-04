@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>A Basic Todo List</title>
+  </head>
+  <link rel="stylesheet" href="master.css">
+  <body>
+    <form class="" action="/" method="post">
+      <input type="text" name="listItem" value="">
+      <input type="submit" name="submit" value="Submit!">
+    <h1>Things to do</h1>
+      {{#todos}}
+      <label for="button"></label>
+      <button type="submit" name="button" value='{{.}}'>Completed</button>
+      <label for="button">{{.}}</label>
+      <br>
+      {{/todos}}
+
+      <h1>Things Done</h1>
+       {{#complete}}
+       <ul>
+         <li>
+           {{.}}
+         </li>
+       </ul>
+      {{/complete}}
+
+    </form>
+  </body>
+</html>
