@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>adApp</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-notification/0.3.6/angular-ui-notification.min.css">
+    <style>
+        .topmargin{
+            margin-top: 50px;
+        }
+
+        .field-inline{
+            padding-left: 0px; 
+        }
+
+        .list-table{
+            max-height: 250px;
+            overflow-y: scroll;
+        }
+    </style>    
+</head>
+<body ng-app="adApp" ng-controller="checkoutCtrl">
+  <div class="container topmargin">
+      <div class="col-md-12">
+          <div class="panel panel-info">
+            <div class="panel-heading">Checkout summery
+                <a href="" class="pull-right" ng-click="goToDashboard()">Go To Dashboard</a> 
+            </div>
+                <div class="panel-body">
+                    <div class="col-md-4">
+                        <form>
+                            <div class="col-md-12 field-inline">
+                                <div class="form-group">
+                                    <label for="customer">Customer:</label>
+                                    <select class="form-control" ng-change='changeCustomer()' ng-model="customerName" ng-options="customer for customer in customers"></select>
+                                </div>
+                            </div>    
+                            <div class="col-md-10 field-inline">
+                                <div class="form-group">
+                                    <label for="ad">Type of Ad:</label>
+                                    <select class="form-control" ng-model="selectedProduct" ng-options="product.name for product in products"></select>
+                                </div>
+                            </div>
+                            <div class="col-md-2 field-inline">
+                                <div class="form-group">
+                                    <label for="ad">Count:</label>
+                                    <input type="text" ng-model="numberOfItems" class="form-control" id="ad" name="ad">
+                                </div>
+                            </div>    
+                            <button ng-click="addItem()" class="btn btn-default">Add</button>
+                        </form>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="list-table">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Ad Type</th>
+                                    <th>Unit Price</th>
+                                    <th>No.of Items</th>
+                                    <th>Total Price</th>
+                                    <th>Discount applied</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in totalAddedItems">
+                                        <td>{{ item.name }}</td>
+                                        <td>${{ item.price }}</td>
+                                        <td>{{ item.numberOfItems }}</td>
+                                        <td>${{ item.totalPrice }}</td>
+                                        <td ng-if="item.discountApplied"><span class="label label-success">Yes</span></td>
+                                        <td ng-if="!item.discountApplied"><span class="label label-default">No</span></td>
+                                        <td><a href="#" class="btn btn-xs btn-danger" ng-click="removeItem(item)">Delete</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>    
+                </div>
+                <div class="panel-footer panel-primary">
+                        <strong>Total : ${{totalCheckoutValue}}</strong>
+                </div><!--.panel-footer-->
+            </div>
+      </div>
+  </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-notification/0.3.6/angular-ui-notification.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers/checkout.controller.js"></script>
+<script src="js/services/products.service.js"></script>
+</body>
+</html>
