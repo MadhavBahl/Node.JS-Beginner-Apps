@@ -1,0 +1,7 @@
+extends layout
+
+block main
+  form.namecard-form(action='/scrape', method='get')
+    label Please enter your name:
+      input(type='text', name='username')
+    button(type='submit') Submit
