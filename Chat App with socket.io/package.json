@@ -1,0 +1,13 @@
+{
+  "name": "chat-app",
+  "version": "0.0.0",
+  "description": "A chat app using socket.io and express",
+  "main": "server.js",
+  "repository": "",
+  "author": "achie27",
+  "dependencies": {
+    "async": "~0.2.8",
+    "express": "~3.2.4",
+    "socket.io": "~0.9.14"
+  }
+}
